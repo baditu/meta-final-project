@@ -1,31 +1,76 @@
+import { Route, Link, Routes } from "react-router-dom";
+import HomePage from "../pages/HomePage";
+import { MdMenu } from "react-icons/md";
+import { useState } from "react";
 
+const routes = [
+  {
+    name: "Home",
+    path: "/",
+  },
+  {
+    name: "About",
+    path: "/about",
+  },
+  {
+    name: "Menu",
+    path: "/menu",
+  },
+  {
+    name: "Reservations",
+    path: "/reservations",
+  },
+  {
+    name: "Order",
+    path: "/order",
+  },
+  {
+    name: "Login",
+    path: "/login",
+  },
+];
 
 const Navbar = () => {
+  const [openMenuForNav, setOpenMenuForNav] = useState(false);
+
+  console.log("open:", openMenuForNav);
+
   return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <a href="/home">Home</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-          <li>
-            <a href="/menu">Menu</a>
-          </li>
-          <li>
-            <a href="/reservations">Reservations</a>
-          </li>
-          <li>
-            <a href="/order-online">Order online</a>
-          </li>
-          <li>
-            <a href="/login">Login</a>
-          </li>
-        </ul>
+    <div className="w-full">
+      <nav className="bg-light-color">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <img className="shrink-0" src="/images/Logo.svg" alt="logo" />
+            <ul className="space-x-8 hidden md:block">
+              {(routes ?? []).map((route) => {
+                return (
+                  <Link
+                    className="text-black font-bold"
+                    key={`link-to-${route.path}`}
+                    to={`${route.path}`}
+                  >
+                    {route.name}
+                  </Link>
+                );
+              })}
+            </ul>
+            <div className="-mr-2 flex md:hidden items-center justify-center p-2 rounded-md text-3xl text-black hover:text-white hover:bg-background-color-2 focus:outline-none">
+              <button onClick={() => setOpenMenuForNav(!openMenuForNav)}>
+                <MdMenu />
+              </button>
+            </div>
+          </div>
+        </div>
       </nav>
-    </>
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/about"></Route>
+        <Route path="/menu"></Route>
+        <Route path="/reservations"></Route>
+        <Route path="/order"></Route>
+        <Route path="/login"></Route>
+      </Routes>
+    </div>
   );
 };
 
