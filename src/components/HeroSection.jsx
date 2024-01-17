@@ -1,6 +1,6 @@
 const HeroSection = () => {
   return (
-    <article className="bg-background-color-2 w-full h-1/3 flex justify-evenly p-4 ">
+    <article className="bg-background-color-2 w-full h-1/3 flex justify-between p-4 px-20">
       <section className="lex flex-col justify-center max-w-sm md:w-1/2">
         <h1 className="text-text-color-1 font-markazi text-4xl">
           Little Lemon
@@ -10,7 +10,7 @@ const HeroSection = () => {
           We are a family owned Mediterranean restaurant, focused on traditional
           recipes served with a modern twist.
         </p>
-        <button className="bg-text-color-1 font-bold py-2 px-4 rounded-xl text-sm mt-4">
+        <button className="bg-text-color-1 font-bold py-2 px-4 rounded-xl text-sm mt-4 hover:bg-light-color-2">
           Reserve a Table
         </button>
       </section>
