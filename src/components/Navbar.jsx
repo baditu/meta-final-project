@@ -1,7 +1,7 @@
-import { Route, Link, Routes } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import { Link } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import { useState } from "react";
+import HamburgerMenu from "./HamburgerMenu";
 
 const routes = [
   {
@@ -55,21 +55,20 @@ const Navbar = () => {
               })}
             </ul>
             <div className="-mr-2 flex md:hidden items-center justify-center p-2 rounded-md text-3xl text-black hover:text-white hover:bg-background-color-2 focus:outline-none">
-              <button onClick={() => setOpenMenuForNav(!openMenuForNav)}>
+              <button
+                type="button"
+                id="menu-button"
+                aria-expanded={openMenuForNav}
+                aria-haspopup="true"
+                onClick={() => setOpenMenuForNav(!openMenuForNav)}
+              >
                 <MdMenu />
               </button>
             </div>
           </div>
         </div>
+        {openMenuForNav && <HamburgerMenu routes={routes} />}
       </nav>
-      <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/about"></Route>
-        <Route path="/menu"></Route>
-        <Route path="/reservations"></Route>
-        <Route path="/order"></Route>
-        <Route path="/login"></Route>
-      </Routes>
     </div>
   );
 };
