@@ -6,6 +6,10 @@ const FooterNavigation = () => {
     <div className="flex flex-col ">
       <h1 className="font-bold md:text-2xl">Navigation</h1>
       {(routes ?? []).map((route) => {
+        if (route.name === "About") {
+          return null;
+        }
+
         return (
           <Link
             className="text-black font-bold"
