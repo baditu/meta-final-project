@@ -24,7 +24,7 @@ const PersonalInfoForm = ({
             id="first-name"
             required
             name="firstName"
-            onChange={handleChange}
+            onChange={(e) => handleChange(e.target)}
             onBlur={onBlur}
           />
         </div>
@@ -41,7 +41,7 @@ const PersonalInfoForm = ({
             id="last-name"
             name="lastName"
             required
-            onChange={handleChange}
+            onChange={(e) => handleChange(e.target)}
             onBlur={onBlur}
           />
         </div>
@@ -58,7 +58,7 @@ const PersonalInfoForm = ({
             id="last-name"
             name="email"
             required
-            onChange={handleChange}
+            onChange={(e) => handleChange(e.target)}
             onBlur={onBlur}
           />
         </div>
@@ -75,7 +75,7 @@ const PersonalInfoForm = ({
             id="last-name"
             name="phone"
             required
-            onChange={handleChange}
+            onChange={(e) => handleChange(e.target)}
             onBlur={onBlur}
           />
         </div>
@@ -85,20 +85,22 @@ const PersonalInfoForm = ({
           </label>
           <div>
             <input
-              type="checkbox"
-              className="form-checkbox"
+              type="radio"
+              className="form-radio"
               name="confirmation"
-              onChange={handleChange}
+              value="Email"
+              onChange={(e) => handleChange(e.target)}
               onBlur={onBlur}
             />
             <label className="text-white"> Email</label>
           </div>
           <div>
             <input
-              type="checkbox"
-              className="form-checkbox"
+              type="radio"
+              className="form-radio"
               name="confirmation"
-              onChange={handleChange}
+              value="Phone"
+              onChange={(e) => handleChange(e.target)}
               onBlur={onBlur}
             />
             <label className="text-white"> Phone</label>

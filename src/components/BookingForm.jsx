@@ -1,4 +1,6 @@
-const BookingForm = ({ formData, handleChange, nextStep, onBlur }) => {
+const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
+  const { values } = formState;
+
   return (
     <div className="bg-background-color-2 rounded-xl container mx-auto p-6 shadow-lg max-w-md">
       <h1 className="text-2xl font-semibold mb-6 text-text-color-1">
@@ -19,7 +21,8 @@ const BookingForm = ({ formData, handleChange, nextStep, onBlur }) => {
             min={new Date().toISOString().split("T")[0]}
             name="reservationDate"
             required
-            onChange={handleChange}
+            value={formState.values.reservationDate}
+            onChange={(e) => handleChange(e.target)}
             onBlur={onBlur}
           />
         </div>
@@ -34,7 +37,7 @@ const BookingForm = ({ formData, handleChange, nextStep, onBlur }) => {
             className="w-full p-2 border-gray-300 rounded"
             id="res-time"
             name="reservationTime"
-            onChange={handleChange}
+            onChange={(e) => handleChange(e.target)}
             onBlur={onBlur}
           >
             <option>17:00</option>
@@ -60,7 +63,7 @@ const BookingForm = ({ formData, handleChange, nextStep, onBlur }) => {
             min="1"
             max="10"
             id="guests"
-            onChange={handleChange}
+            onChange={(e) => handleChange(e.target)}
             onBlur={onBlur}
           />
         </div>
@@ -75,7 +78,7 @@ const BookingForm = ({ formData, handleChange, nextStep, onBlur }) => {
             className="w-full p-2 border-gray-300 rounded"
             id="occasion"
             name="occasion"
-            onChange={handleChange}
+            onChange={(e) => handleChange(e.target)}
             onBlur={onBlur}
           >
             <option>Birthday</option>
@@ -94,7 +97,7 @@ const BookingForm = ({ formData, handleChange, nextStep, onBlur }) => {
             name="specialRequest"
             className="w-full p-2 border-gray-300 rounded"
             rows="3"
-            onChange={handleChange}
+            onChange={(e) => handleChange(e.target)}
             onBlur={onBlur}
           />
         </div>

@@ -9,9 +9,9 @@ const initialValues = {
   email: "",
   phone: "",
   reservationDate: "",
-  reservationTime: "",
-  numberOfPeople: "",
-  occasion: "",
+  reservationTime: "17:00",
+  numberOfPeople: "1",
+  occasion: "Birthday",
   specialRequest: "",
   confirmation: "",
 };
@@ -32,6 +32,7 @@ const ReservationsPage = () => {
   const prevStep = () => setStep(step - 1);
 
   const handleChange = (target) => {
+
     setFormState((prev) => ({
       ...prev,
       values: {
@@ -54,7 +55,7 @@ const ReservationsPage = () => {
     }));
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       setSendFormMock(true);
 
@@ -68,6 +69,8 @@ const ReservationsPage = () => {
       }));
     }
   };
+
+  console.log(sendFormMock)
 
   switch (step) {
     case 1:
