@@ -6,12 +6,11 @@ import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
-    <main className="flex flex-col h-screen">
+    <main className="flex flex-col">
       <HeroSection />
       <Highlights />
       <Testimonials />
       <AboutSummary />
-      <Footer />
     </main>
   );
 };

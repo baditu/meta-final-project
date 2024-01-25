@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import { Helmet } from "react-helmet";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
@@ -24,7 +25,8 @@ const Layout = ({ children }) => {
       <header>
         <Navbar />
       </header>
-      {children}
+        {children}
+      <Footer />
     </>
   );
 };
