@@ -72,33 +72,54 @@ const ReservationsPage = () => {
   switch (step) {
     case 1:
       return (
-        <BookingForm
-          formState={formState}
-          handleChange={handleChange}
-          nextStep={nextStep}
-          touched={touched}
-          onBlur={onBlur}
-        />
+        <div className="flex flex-col justify-center h-screen">
+          <div className="bg-background-color-2 rounded-xl container mx-auto p-6 shadow-lg max-w-md mb-8">
+            <h1 className="text-text-color-1 text-3xl font-extrabold text-center">
+              {"Reservations"}
+            </h1>
+          </div>
+          <BookingForm
+            formState={formState}
+            handleChange={handleChange}
+            nextStep={nextStep}
+            touched={touched}
+            onBlur={onBlur}
+          />
+        </div>
       );
     case 2:
       return (
-        <PersonalInfoForm
-          formState={formState}
-          handleChange={handleChange}
-          nextStep={nextStep}
-          prevStep={prevStep}
-          touched={touched}
-          onBlur={onBlur}
-        />
+        <div className="flex flex-col justify-center h-screen">
+          <div className="bg-background-color-2 rounded-xl container mx-auto p-6 shadow-lg max-w-md mb-8">
+            <h1 className="text-text-color-1 text-3xl font-extrabold text-center">
+              {"Reservations"}
+            </h1>
+          </div>
+          <PersonalInfoForm
+            formState={formState}
+            handleChange={handleChange}
+            nextStep={nextStep}
+            prevStep={prevStep}
+            touched={touched}
+            onBlur={onBlur}
+          />
+        </div>
       );
     case 3:
       return (
-        <ReviewForm
-          formState={formState}
-          prevStep={prevStep}
-          onSubmit={onSubmit}
-          sendFormMock={sendFormMock}
-        />
+        <div className="flex flex-col justify-center h-screen">
+          <div className="bg-background-color-2 rounded-xl container mx-auto p-6 shadow-lg max-w-md mb-8">
+            <h1 className="text-text-color-1 text-3xl font-extrabold text-center">
+              {"Reservations"}
+            </h1>
+          </div>
+          <ReviewForm
+            formState={formState}
+            prevStep={prevStep}
+            onSubmit={onSubmit}
+            sendFormMock={sendFormMock}
+          />
+        </div>
       );
     default:
       return null;
