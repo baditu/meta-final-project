@@ -1,10 +1,8 @@
 const SpecialCard = (props) => {
   const { title, price, description, image } = props.specialty;
 
-  console.log(image);
-
   return (
-    <div className="bg-light-color-2 border p-4 rounded-lg">
+    <div className="bg-light-color-2 border p-4 rounded-lg max-w-md">
       <img src={image} alt={title} className="rounded-lg mb-4 w-full h-1/2" />
       <h3 className="text-lg font-bold text-gray-800 mb-2">{title}</h3>
       <p className="text-gray-600">{`$${price}`}</p>

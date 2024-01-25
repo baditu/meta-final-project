@@ -1,4 +1,3 @@
-import "./App.css";
 import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -13,14 +12,14 @@ function App() {
   return (
     <Router>
       <Layout>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/menu" element={<MenuPage />} />
-        <Route path="/reservations" element={<ReservationsPage />} />
-        <Route path="/order" element={<OrderPage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/reservations" element={<ReservationsPage />} />
+          <Route path="/order" element={<OrderPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
       </Layout>
     </Router>
   );

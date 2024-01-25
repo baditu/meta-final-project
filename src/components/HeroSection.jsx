@@ -1,11 +1,11 @@
 const HeroSection = () => {
   return (
-    <article className="bg-background-color-2 w-full h-1/3 flex justify-between p-4 px-20">
-      <section className="lex flex-col justify-center max-w-sm md:w-1/2">
-        <h1 className="text-text-color-1 font-markazi text-4xl">
+    <article className="bg-background-color-2 h-1/3 flex justify-between p-4 px-20 relative">
+      <section className="flex flex-col justify-center max-w-sm md:w-1/2 lg:ml-20">
+        <h1 className="text-text-color-1 font-markazi text-2xl sm:text-4xl">
           Little Lemon
         </h1>
-        <h2 className="text-white font-markazi text-xl">Chicago</h2>
+        <h2 className="text-white font-markazi text-lg sm:text-xl">Chicago</h2>
         <p className="text-white pt-3">
           We are a family owned Mediterranean restaurant, focused on traditional
           recipes served with a modern twist.
@@ -17,7 +17,7 @@ const HeroSection = () => {
       <img
         src="/images/Food.jpg"
         alt="iamge-for-hero-page"
-        className="rounded-xl w-max h-full hidden md:block border-black border-2"
+        className="rounded-xl w-1/3 max-w-96 max-h-96 hidden md:block border-black border-2 absolute top-10 md:right-10 lg:right-1/5 xl:right-1/4"
       />
     </article>
   );
