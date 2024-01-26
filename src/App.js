@@ -6,20 +6,23 @@ import OrderPage from "./pages/OrderPage";
 import LoginPage from "./pages/LoginPage";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
+import { UserContextProvider } from "./context/UserContext";
 
 function App() {
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/reservations" element={<ReservationsPage />} />
-          <Route path="/order" element={<OrderPage />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <UserContextProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/menu" element={<MenuPage />} />
+            <Route path="/reservations" element={<ReservationsPage />} />
+            <Route path="/order" element={<OrderPage />} />
+            <Route path="/login" element={<LoginPage />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </UserContextProvider>
   );
 }
 

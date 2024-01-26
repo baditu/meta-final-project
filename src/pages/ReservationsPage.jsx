@@ -32,7 +32,6 @@ const ReservationsPage = () => {
   const prevStep = () => setStep(step - 1);
 
   const handleChange = (target) => {
-
     setFormState((prev) => ({
       ...prev,
       values: {
@@ -69,8 +68,6 @@ const ReservationsPage = () => {
       }));
     }
   };
-
-  console.log(sendFormMock)
 
   switch (step) {
     case 1:

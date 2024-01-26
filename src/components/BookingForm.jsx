@@ -1,5 +1,10 @@
+import { useUserContext } from "../context/UserContext";
+import { generateRandomTimes } from "../services/timesAPI";
+
 const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
-  const { values } = formState;
+  const { state: userState, dispatch } = useUserContext();
+
+  console.log(userState.availableTimes);
 
   return (
     <div className="bg-background-color-2 rounded-xl container mx-auto p-6 shadow-lg max-w-md">
@@ -22,7 +27,13 @@ const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
             name="reservationDate"
             required
             value={formState.values.reservationDate}
-            onChange={(e) => handleChange(e.target)}
+            onChange={(e) => {
+              dispatch({
+                type: "UPDATE_AVAILABLE_TIMES",
+                payload: generateRandomTimes(),
+              });
+              handleChange(e.target);
+            }}
             onBlur={onBlur}
           />
         </div>
@@ -40,12 +51,9 @@ const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
             onChange={(e) => handleChange(e.target)}
             onBlur={onBlur}
           >
-            <option>17:00</option>
-            <option>18:00</option>
-            <option>19:00</option>
-            <option>20:00</option>
-            <option>21:00</option>
-            <option>22:00</option>
+            {(userState.availableTimes ?? []).map((time) => {
+              return <option key={time}>{time}</option>;
+            })}
           </select>
         </div>
         <div>
