@@ -3,9 +3,6 @@ import { generateRandomTimes } from "../services/timesAPI";
 
 const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
   const { state: userState, dispatch } = useUserContext();
-
-  console.log(userState.availableTimes);
-
   return (
     <div className="bg-background-color-2 rounded-xl container mx-auto p-6 shadow-lg max-w-md">
       <h1 className="text-2xl font-semibold mb-6 text-text-color-1">
@@ -26,7 +23,7 @@ const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
             min={new Date().toISOString().split("T")[0]}
             name="reservationDate"
             required
-            value={formState.values.reservationDate}
+            value={formState?.values?.reservationDate}
             onChange={(e) => {
               dispatch({
                 type: "UPDATE_AVAILABLE_TIMES",
@@ -51,7 +48,7 @@ const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
             onChange={(e) => handleChange(e.target)}
             onBlur={onBlur}
           >
-            {(userState.availableTimes ?? []).map((time) => {
+            {(userState?.availableTimes ?? []).map((time) => {
               return <option key={time}>{time}</option>;
             })}
           </select>

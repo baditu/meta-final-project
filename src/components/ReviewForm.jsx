@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 const ReviewForm = ({ formState, prevStep, onSubmit, sendFormMock }) => {
   const { values } = formState;
 
-  console.log(sendFormMock === false);
-
   return (
     <>
       {(sendFormMock === false && (
@@ -67,10 +65,7 @@ const ReviewForm = ({ formState, prevStep, onSubmit, sendFormMock }) => {
             You have successfully reserved your table!
           </h1>
           <Link key={`link-to-${"/"}`} to={`${"/"}`}>
-            <button
-              className="w-1/2 m-auto p-3 bg-text-color-1 rounded hover:bg-yellow-600"
-              onClick={() => console.log("Home")}
-            >
+            <button className="w-1/2 m-auto p-3 bg-text-color-1 rounded hover:bg-yellow-600">
               Back Home
             </button>
           </Link>
