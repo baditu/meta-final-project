@@ -3,6 +3,9 @@ import { generateRandomTimes } from "../services/timesAPI";
 
 const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
   const { state: userState, dispatch } = useUserContext();
+
+  console.log(formState)
+
   return (
     <div className="bg-background-color-2 rounded-xl container mx-auto p-6 shadow-lg max-w-md">
       <h1 className="text-2xl font-semibold mb-6 text-text-color-1">
@@ -88,6 +91,7 @@ const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
           >
             <option>Birthday</option>
             <option>Anniversary</option>
+            <option>No special occasion</option>
           </select>
         </div>
         <div>
@@ -107,8 +111,12 @@ const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
           />
         </div>
         <button
-          className="w-1/2 m-auto p-3 bg-text-color-1 rounded hover:bg-yellow-600"
+          className="w-1/2 m-auto p-3 bg-text-color-1 rounded-xl text-background-color-2 hover:bg-yellow-600"
           onClick={nextStep}
+          disabled={
+            formState?.values?.reservationDate === "" ||
+            formState?.values?.resevationTime === ""
+          }
         >
           Continue
         </button>

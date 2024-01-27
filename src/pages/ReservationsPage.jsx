@@ -9,11 +9,11 @@ const initialValues = {
   email: "",
   phone: "",
   reservationDate: "",
-  reservationTime: "17:00",
+  reservationTime: "",
   numberOfPeople: "1",
   occasion: "Birthday",
-  specialRequest: "",
-  confirmation: "",
+  specialRequest: "-",
+  confirmation: "Phone",
 };
 
 const initialState = {

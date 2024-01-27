@@ -14,7 +14,30 @@ const times = [
   "8PM",
   "9PM",
 ];
+function sortTimesByHourAndPeriod(arr) {
+  const timeRegex = /(\d+)([APMapm]+)/; // Regular expression to extract hour and period
 
+  const comparator = (a, b) => {
+    const [, hourA, periodA] = a.match(timeRegex);
+    const [, hourB, periodB] = b.match(timeRegex);
+
+    const numericHourA = parseInt(hourA, 10);
+    const numericHourB = parseInt(hourB, 10);
+
+    if (numericHourA !== numericHourB) {
+      return numericHourA - numericHourB;
+    }
+
+    const periodOrder = { AM: 0, PM: 1 };
+    return (
+      periodOrder[periodA.toUpperCase()] - periodOrder[periodB.toUpperCase()]
+    );
+  };
+
+  const sortedTimes = arr.sort(comparator);
+
+  return sortedTimes;
+}
 export function generateRandomTimes() {
   const randomTimes = [];
 
@@ -27,5 +50,5 @@ export function generateRandomTimes() {
     }
   }
 
-  return randomTimes;
+  return sortTimesByHourAndPeriod(randomTimes);
 }

@@ -39,7 +39,6 @@ const ReviewForm = ({ formState, prevStep, onSubmit, sendFormMock }) => {
           <ReviewElement title={"Last Name: "} value={values.lastName} />
           <ReviewElement title={"Email: "} value={values.email} />
           <ReviewElement title={"Phone: "} value={values.phone} />
-          <ReviewElement title={"Phone: "} value={values.phone} />
           <ReviewElement
             title={"Send confirmation via: "}
             value={values.confirmation}

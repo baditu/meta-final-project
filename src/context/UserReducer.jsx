@@ -5,8 +5,6 @@ export const initialState = {
 export const userReducer = (state, action) => {
   const { type, payload } = action;
 
-  console.log("PAYLOAD: ", payload);
-
   switch (type) {
     case "UPDATE_AVAILABLE_TIMES":
       return {

@@ -1,10 +1,11 @@
 const PersonalInfoForm = ({
-  formData,
+  formState,
   handleChange,
   nextStep,
   prevStep,
   onBlur,
 }) => {
+
   return (
     <div className="bg-background-color-2 rounded-xl container mx-auto p-6 shadow-lg max-w-md">
       <h1 className="text-2xl font-semibold mb-6 text-text-color-1">
@@ -116,6 +117,12 @@ const PersonalInfoForm = ({
           <button
             className="w-1/3 m-auto p-3 bg-text-color-1 rounded hover:bg-yellow-600"
             onClick={nextStep}
+            disabled={
+              formState?.values?.firstName === "" ||
+              formState?.values?.lastName === "" ||
+              formState?.values?.email === "" ||
+              formState?.values?.phone === ""
+            }
           >
             Continue
           </button>
