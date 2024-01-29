@@ -115,7 +115,7 @@ const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
           onClick={nextStep}
           disabled={
             formState?.values?.reservationDate === "" ||
-            formState?.values?.resevationTime === ""
+            formState?.values?.reservationTime === ""
           }
         >
           Continue
