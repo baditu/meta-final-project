@@ -33,7 +33,7 @@ const ReviewForm = ({ formState, prevStep, onSubmit, sendFormMock }) => {
             title={"Special Request: "}
             value={values.specialRequest}
           />
-          <h3 className="text-xl text-white">Personal Information</h3>
+          <h3 className="text-xl text-white mt-4">Personal Information</h3>
           <div className="border-t border-gray-300 mt-2 mb-4"></div>
           <ReviewElement title={"First Name: "} value={values.firstName} />
           <ReviewElement title={"Last Name: "} value={values.lastName} />
@@ -43,7 +43,7 @@ const ReviewForm = ({ formState, prevStep, onSubmit, sendFormMock }) => {
             title={"Send confirmation via: "}
             value={values.confirmation}
           />
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-4">
             <button
               className="w-1/3 m-auto p-3 bg-text-color-1 rounded hover:bg-yellow-600"
               onClick={prevStep}

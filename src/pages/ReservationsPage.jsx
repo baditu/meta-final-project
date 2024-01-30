@@ -107,7 +107,7 @@ const ReservationsPage = () => {
       );
     case 3:
       return (
-        <div className="flex flex-col justify-center h-screen">
+        <div className="flex flex-col justify-center py-2">
           <div className="bg-background-color-2 rounded-xl container mx-auto p-6 shadow-lg max-w-md mb-8">
             <h1 className="text-text-color-1 text-3xl font-extrabold text-center">
               {"Reservations"}
