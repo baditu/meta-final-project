@@ -7,12 +7,17 @@ import { Link as LinkReactScroll } from "react-scroll";
 
 const Navbar = () => {
   const [openMenuForNav, setOpenMenuForNav] = useState(false);
+
+  const toggleMenu = () => {
+    setOpenMenuForNav(!openMenuForNav);
+  };
+  
   return (
-    <nav>
-      <div className="max-w-7xl mx-auto px-10 ">
+    <nav className="relative">
+      <div className="max-w-7xl mx-auto px-8 py-5">
         <div className="flex items-center justify-between h-16">
-          <img className="shrink-0" src="/images/Logo.svg" alt="logo" />
-          <ul className="space-x-8 hidden md:block">
+          <img className="shrink-0 h-3/4" src="/images/Logo.svg" alt="logo" />
+          <ul className="hidden md:flex space-x-8">
             {(routes ?? []).map((route) => {
               if (route.name === "About") {
                 return (
@@ -23,7 +28,7 @@ const Navbar = () => {
                     smooth={true}
                     duration={1000}
                     activeStyle={{ color: "black" }}
-                    className="font-bold cursor-pointer"
+                    className="font-bold cursor-pointer hover:text-text-color-1"
                   >
                     About
                   </LinkReactScroll>
@@ -31,7 +36,7 @@ const Navbar = () => {
               } else {
                 return (
                   <Link
-                    className="text-black font-bold"
+                    className="text-black font-bold hover:text-text-color-1"
                     key={`link-to-${route.path}`}
                     to={`${route.path}`}
                   >
@@ -41,20 +46,19 @@ const Navbar = () => {
               }
             })}
           </ul>
-          <div className="-mr-2 flex md:hidden items-center justify-center p-2 rounded-md text-3xl text-black hover:text-white hover:bg-background-color-2 focus:outline-none">
+          <div className="md:hidden">
             <button
-              type="button"
-              id="menu-button"
+              onClick={toggleMenu}
+              className="p-2 rounded-md text-3xl text-black hover:text-white hover:bg-background-color-2 focus:outline-none"
               aria-expanded={openMenuForNav}
-              aria-haspopup="true"
-              onClick={() => setOpenMenuForNav(!openMenuForNav)}
+              aria-label="Open menu"
             >
               <MdMenu />
             </button>
           </div>
         </div>
       </div>
-      {openMenuForNav && <HamburgerMenu routes={routes} />}
+      {openMenuForNav && <HamburgerMenu routes={routes} isOpen={openMenuForNav} onClose={toggleMenu}/>}
     </nav>
   );
 };
