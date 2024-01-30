@@ -11,7 +11,7 @@ const Navbar = () => {
   const toggleMenu = () => {
     setOpenMenuForNav(!openMenuForNav);
   };
-  
+
   return (
     <nav className="relative">
       <div className="max-w-7xl mx-auto px-8 py-5">
@@ -58,7 +58,13 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {openMenuForNav && <HamburgerMenu routes={routes} isOpen={openMenuForNav} onClose={toggleMenu}/>}
+      {openMenuForNav && (
+        <HamburgerMenu
+          routes={routes}
+          isOpen={openMenuForNav}
+          onClose={toggleMenu}
+        />
+      )}
     </nav>
   );
 };

@@ -38,10 +38,7 @@ const PersonalInfoForm = ({
   };
 
   const handleContinue = () => {
-    console.log("here");
     const isValid = validateForm();
-
-    console.log(isValid);
 
     if (isValid) {
       nextStep();

@@ -3,9 +3,6 @@ import { generateRandomTimes } from "../services/timesAPI";
 
 const BookingForm = ({ formState, handleChange, nextStep, onBlur }) => {
   const { state: userState, dispatch } = useUserContext();
-
-  console.log(formState)
-
   return (
     <div className="bg-background-color-2 rounded-xl container mx-auto p-6 shadow-lg max-w-md">
       <h1 className="text-2xl font-semibold mb-6 text-text-color-1">
