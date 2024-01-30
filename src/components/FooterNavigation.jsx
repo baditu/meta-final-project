@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const FooterNavigation = () => {
   return (
-    <div className="flex flex-col ">
+    <div className="flex-col hidden md:flex">
       <h1 className="font-bold md:text-2xl">Navigation</h1>
       {(routes ?? []).map((route) => {
         if (route.name === "About") {
